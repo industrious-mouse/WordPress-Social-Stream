@@ -3,7 +3,7 @@ function load_social_stream() {
         'action': 'load_ss_template'
     };
 
-    jQuery.post('/wp-admin/admin-ajax.php', data, function(data) {
+    jQuery.post(ajaxurl, data, function(data) {
         jQuery('.ss-container').html(data);
     });
 }
