@@ -1,0 +1,15 @@
+{
+    "name": "industrious-mouse/social-stream",
+    "description": "Create a single feed for WordPress posts, Twitter posts, Facebook posts and Instagram Posts",
+    "authors": [
+    	{
+    	    "name": "Stephen Radford",
+    	    "email": "stephen@wearecocoon.co.uk"
+    	},
+        {
+            "name": "Christian Thomas",
+            "email": "christian@industriousmouse.co.uk"
+        }
+    ],
+    "require": {}
+}
