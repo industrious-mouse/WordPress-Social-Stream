@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Social Stream
-Description: Pull your Twitter, Facebook and WordPress posts into one neat section
+Description: Pull your Twitter, Facebook, Instagram and WordPress posts into one neat section
 Version: 1.0
 License: MIT
 License URI: http://opensource.org/licenses/MIT
@@ -19,6 +19,7 @@ require_once __DIR__.'/classes/SS_Posts.php';
 require_once __DIR__.'/classes/SS_Settings.php';
 require_once __DIR__.'/classes/SS_Stream.php';
 require_once __DIR__.'/classes/SS_Twitter.php';
+require_once __DIR__.'/classes/SS_Instagram.php';
 
 /**
  * Initiate classes

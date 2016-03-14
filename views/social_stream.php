@@ -9,6 +9,10 @@
             <div class="social-stream__post social-stream__post--facebook">
                 <?php echo SS_Facebook::parse($post['message']) ?>
             </div>
+        <?php elseif(is_instagram_post($post)) : ?>
+            <div class="social-stream__post social-stream__post--instagram">
+                <?php echo SS_Instagram::parse($post['message']) ?>
+            </div>
         <?php else : ?>
             <div class="social-stream__post social-stream__post--post">
                 <?php echo $post['content'] ?>

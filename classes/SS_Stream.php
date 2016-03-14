@@ -56,9 +56,10 @@ class SS_Stream {
      * @return void
      */
     public function load_classes() {
-        $this->facebook = new SS_Facebook();
-        $this->twitter  = new SS_Twitter();
-        $this->posts    = new SS_Posts();
+        $this->facebook     = new SS_Facebook();
+        $this->twitter      = new SS_Twitter();
+        $this->instagram    = new SS_Instagram();
+        $this->posts        = new SS_Posts();
     }
 
     /**
@@ -68,6 +69,7 @@ class SS_Stream {
     public function fetch() {
         $this->facebook->fetch();
         $this->twitter->fetch();
+        $this->instagram->fetch();
         $this->posts->fetch();
 
         return $this->merge()->sort()->merged;

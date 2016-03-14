@@ -1,7 +1,7 @@
 === Social Stream ===
 Contributors: steve228uk
 Donate link: http://stephenradford.me/wordpress-social-stream/
-Tags: posts, social, facebook, twitter, feed
+Tags: posts, social, facebook, twitter, instagram, feed
 Requires at least: 3.0.1
 Tested up to: 4.1.1
 Stable tag: 1.0
@@ -18,16 +18,18 @@ Social Stream takes your latest posts from Twitter, Facebook and your WordPress 
 
 1. Upload the plugin folder to the `/wp-content/plugins/` directory
 2. Activate the plugin in the WordPress dashboard
-3. To enable Twitter, you need to create a new "App" at [https://developers.facebook.com/apps](https://apps.twitter.com)
+3. To enable Twitter, you need to create a new "App" at [https://apps.twitter.com](https://apps.twitter.com)
 4. Once you've create an app, opt to create an access token for your account
 5. Copy the details into Settings -> Social Stream
-6. To setup Facebook you need to create a new "App" at [https://developers.facebook.com/apps](https://developers.facebook.com/apps). Select "Website" and then "Skip and Create App ID".
-7. Copy the App ID and App Secret into Settings -> Social Stream
-8. Next, you need to find the ID of your Facebook page. If you're a page admin you can find this in your page settings. If not, you may be able to paste in the url at [Find my Facebook ID](http://findmyfacebookid.com)
+6. To setup Instagram you just need you username.
+7. Type your username into into Settings -> Social Stream
+8. To setup Facebook you need to create a new "App" at [https://developers.facebook.com/apps](https://developers.facebook.com/apps). Select "Website" and then "Skip and Create App ID".
+9. Copy the App ID and App Secret into Settings -> Social Stream
+10. Next, you need to find the ID of your Facebook page. If you're a page admin you can find this in your page settings. If not, you may be able to paste in the url at [Find my Facebook ID](http://findmyfacebookid.com)
 
 == Frequently Asked Questions ==
 
-= How do I disable Twitter, Facebook or WordPress posts from showing in Social Stream =
+= How do I disable Twitter, Facebook, Instagram or WordPress posts from showing in Social Stream =
 
 Easy! Just don't populate the relevant fields in the settings and it'll be excluded automatically.
 
@@ -47,12 +49,13 @@ Place this anywhere you want the stream to be shown in your CMS and it'll pull i
 
 Copy the file `views/social_stream.php` from the plugin to the root of your theme and style as desired.
 
-= What if I just want to pull out Twitter or Facebook posts? =
+= What if I just want to pull out Twitter, Facebook or Instagram posts? =
 
-There are a couple of functions that will allow you to pull out an array of Twitter or Facebook posts on their own.
+There are a couple of functions that will allow you to pull out an array of Twitter, Facebook or Instagram posts on their own.
 
 * `<?php twitter_posts($numberOfPosts) ?>` - Will return an array of Twitter posts
 * `<?php facebook_posts($numberOfPosts) ?>` - Will return an array of Facebook posts
+* `<?php instagram_posts($numberOfPosts) ?>` - Will return an array of Instagram posts
 
 = How do I determine what type of post this is? =
 
@@ -60,6 +63,7 @@ We've included a couple of functions that will return a true/false so you can ea
 
 * `is_twitter_post($post)` - Pass in a post to check
 * `is_facebook_post($post)` - Pass in a post to check
+* `is_instagram_post($post)` - Pass in a post to check
 
 = I want to parse links, @replies and hashtags, how can I do this? =
 
@@ -67,6 +71,7 @@ You don't need to roll your own regex as we've included a couple of static metho
 
 `<?php SS_Twitter::parse($postText) ?>` - Will return the tweet with links, hashtags and @replies parsed
 `<?php SS_Facebook::parse($postText) ?>` - Will return the post with links parsed
+`<?php SS_Instagram::parse($postText) ?>` - Will return the instagram post with links, hashtags and @replies parsed
 
 = Who made this? =
 

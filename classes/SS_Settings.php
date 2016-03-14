@@ -52,6 +52,7 @@ class SS_Settings {
         register_setting('ss_group', 'ss_options', array($this, 'sanitize'));
         add_settings_section('ss_facebook', 'Facebook', array($this, 'section_callback'), 'social_stream');
         add_settings_section('ss_twitter', 'Twitter', array($this, 'section_callback'), 'social_stream');
+        add_settings_section('ss_instagram', 'Instagram', array($this, 'section_callback'), 'social_stream');
         add_settings_section('ss_posts', 'WordPress Posts', array($this, 'section_callback'), 'social_stream');
 
         // Add Facebook fields
@@ -65,6 +66,9 @@ class SS_Settings {
         add_settings_field('access_token', 'Access Token', array($this, 'field_callback'), 'social_stream', 'ss_twitter', array('id' => 'access_token'));
         add_settings_field('access_secret', 'Access Token Secret', array($this, 'field_callback'), 'social_stream', 'ss_twitter', array('id' => 'access_secret'));
         add_settings_field('username', 'Username', array($this, 'field_callback'), 'social_stream', 'ss_twitter', array('id' => 'username'));
+
+        // Add Instagram fields
+        add_settings_field('instagram_username', 'Username', array($this, 'field_callback'), 'social_stream', 'ss_instagram', array('id' => 'instagram_username'));
 
         // Add Posts fields
         add_settings_field('posts_per_page', 'Posts Per Page', array($this, 'field_callback'), 'social_stream', 'ss_posts', array('id' => 'posts_per_page'));

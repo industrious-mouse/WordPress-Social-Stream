@@ -50,6 +50,15 @@ function is_facebook_post($post) {
 }
 
 /**
+ * Check if it's a Instagram post
+ * @param  array  $post Post from the social stream
+ * @return boolean
+ */
+function is_instagram_post($post) {
+    return (isset($post['image']));
+}
+
+/**
  * Pull out an array of Twitter posts on their own
  * @param  int $number Number or twitter posts to pull out
  * @return array
@@ -66,6 +75,17 @@ function twitter_posts($number) {
  * @return array
  */
 function facebook_posts($number) {
+    global $ss_stream;
+    $chunks = array_chunk($ss_stream->facebook->fetch()->posts, $number);
+    return $chunks[0];
+}
+
+/**
+ * Pull out an array of Instagram posts on their own
+ * @param  int $number Number or posts posts to pull out
+ * @return array
+ */
+function instagram_posts($number) {
     global $ss_stream;
     $chunks = array_chunk($ss_stream->facebook->fetch()->posts, $number);
     return $chunks[0];
