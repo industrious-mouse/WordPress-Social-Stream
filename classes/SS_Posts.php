@@ -46,6 +46,7 @@ class SS_Posts {
                 'ID'         => $post->ID,
                 'title'      => get_the_title($post->ID),
                 'content'    => apply_filters('the_content', $post->post_content),
+                'permalink'  => get_permalink($post->ID),
                 'created_at' => get_the_time('U', $post->ID),
             );
         }
