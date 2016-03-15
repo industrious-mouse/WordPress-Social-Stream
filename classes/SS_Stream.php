@@ -80,7 +80,7 @@ class SS_Stream {
      * @return self
      */
     private function merge() {
-        $this->merged = array_merge($this->facebook->posts, $this->twitter->posts, $this->posts->posts);
+        $this->merged = array_merge($this->facebook->posts, $this->twitter->posts, $this->instagram->posts, $this->posts->posts);
         return $this;
     }
 
@@ -88,14 +88,13 @@ class SS_Stream {
      * Sort posts
      * @return self
      */
-    private function sort() {
-        function stream_sorter($a, $b) {
-            $timeA = (isset($a['created_at'])) ? strtotime($a['created_at']) : strtotime($a['created_time']);
-    		$timeB = (isset($b['created_at'])) ? strtotime($b['created_at']) : strtotime($b['created_time']);
-    		return ($timeA < $timeB);
-        }
+    private function sort()
+    {
+        usort($this->merged, function($a, $b)
+        {
+            return ($a->post['timestamp'] < $b->post['timestamp']);
+        });
 
-        usort($this->merged, 'stream_sorter');
         return $this;
     }
 

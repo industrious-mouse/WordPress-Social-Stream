@@ -32,33 +32,6 @@ function ajax_social_stream() {
 }
 
 /**
- * Check if it's a Twitter post
- * @param  array  $post Post from the social stream
- * @return boolean
- */
-function is_twitter_post($post) {
-    return (isset($post['retweet_count']));
-}
-
-/**
- * Check if it's a Facebook post
- * @param  array  $post Post from the social stream
- * @return boolean
- */
-function is_facebook_post($post) {
-    return (isset($post['created_time']));
-}
-
-/**
- * Check if it's a Instagram post
- * @param  array  $post Post from the social stream
- * @return boolean
- */
-function is_instagram_post($post) {
-    return (isset($post['image']));
-}
-
-/**
  * Pull out an array of Twitter posts on their own
  * @param  int $number Number or twitter posts to pull out
  * @return array

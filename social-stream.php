@@ -14,12 +14,20 @@ Author URI: http://wearecocoon.co.uk
  * Require the necessary classes
  */
 
-require_once __DIR__.'/classes/SS_Facebook.php';
-require_once __DIR__.'/classes/SS_Posts.php';
 require_once __DIR__.'/classes/SS_Settings.php';
 require_once __DIR__.'/classes/SS_Stream.php';
+
+require_once __DIR__.'/classes/SS_Provider.php';
+require_once __DIR__.'/classes/SS_Facebook.php';
+require_once __DIR__.'/classes/SS_Posts.php';
 require_once __DIR__.'/classes/SS_Twitter.php';
 require_once __DIR__.'/classes/SS_Instagram.php';
+
+require_once __DIR__.'/classes/posts/SS_Post.php';
+require_once __DIR__.'/classes/posts/SS_FacebookPost.php';
+require_once __DIR__.'/classes/posts/SS_WordpressPost.php';
+require_once __DIR__.'/classes/posts/SS_TwitterPost.php';
+require_once __DIR__.'/classes/posts/SS_InstagramPost.php';
 
 /**
  * Initiate classes

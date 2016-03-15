@@ -3,27 +3,8 @@
 /**
  * Class to fetch news posts
  */
-class SS_Posts {
-
-    /**
-     * WordPress Posts
-     * @var array
-     */
-    public $posts;
-
-    /**
-     * Reference to SS_Settings
-     * @var object
-     */
-    private $settings;
-
-    /**
-     * Let the magic begin
-     */
-    public function __construct() {
-        $this->settings = new SS_Settings();
-    }
-
+class SS_Posts extends SS_Provider
+{
     /**
      * Pull posts from the database
      * @return self
@@ -41,15 +22,10 @@ class SS_Posts {
         $this->posts = array();
 
         $q = new WP_Query($args);
-        foreach($q->posts as $post) {
-            $this->posts[] = array(
-                'ID'         => $post->ID,
-                'title'      => get_the_title($post->ID),
-                'content'    => apply_filters('the_content', $post->post_content),
-                'permalink'  => get_permalink($post->ID),
-                'created_at' => get_the_time('U', $post->ID),
-            );
-        }
+
+        $this->posts = array_map(function($item) {
+            return new SS_WordpressPost($item);
+        }, $q->posts);
 
         return $this;
     }
@@ -61,5 +37,4 @@ class SS_Posts {
     private function valid() {
         return ($this->settings->posts_per_page);
     }
-
 }
