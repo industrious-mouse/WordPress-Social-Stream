@@ -1,18 +1,18 @@
 === Social Stream ===
-Contributors: steve228uk
+Contributors: steve228uk, industrious-mouse
 Donate link: http://stephenradford.me/wordpress-social-stream/
 Tags: posts, social, facebook, twitter, instagram, feed
 Requires at least: 3.0.1
-Tested up to: 4.1.1
-Stable tag: 1.0
+Tested up to: 4.4.2
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Combine Twitter and Facebook feeds with WordPress posts to create one Social Stream
+Combine Twitter, Facebook and Instagram feeds with WordPress posts to create one Social Stream
 
 == Description ==
 
-Social Stream takes your latest posts from Twitter, Facebook and your WordPress blog to merge them into a single feed. This can be displayed anywhere on your site with a shortcode or series of helper PHP functions.
+Social Stream takes your latest posts from Twitter, Facebook, Instagram and your WordPress blog to merge them into a single feed. This can be displayed anywhere on your site with a shortcode or series of helper PHP functions.
 
 == Installation ==
 
