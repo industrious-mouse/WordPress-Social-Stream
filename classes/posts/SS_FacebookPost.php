@@ -7,11 +7,15 @@ class SS_FacebookPost extends SS_Post
     /**
      * @param $post
      * @return array
-     * @todo Update with a proper transformer — No data to test with
      */
     public function transform($post)
     {
-        return (array) $post;
+        return [
+            'id'        => $post['id'],
+            'content'   => isset($post['message']) ? $post['message'] : $post['story'],
+            'timestamp' => strtotime($post['created_time']),
+            'permalink' => self::return_permalink($post['id'])
+        ];
     }
 
     /**
@@ -26,5 +30,14 @@ class SS_FacebookPost extends SS_Post
         $content = preg_replace('/(https:\/\/[a-z0-9\.\/]+)/i', '<a href="$1" target="_blank">$1</a>', $content);
 
         return $content;
+    }
+
+    /**
+     * @param $id
+     * @return string
+     */
+    private static function return_permalink($id)
+    {
+        return 'https://facebook.com' . str_replace('_', '/posts/', $id);
     }
 }
