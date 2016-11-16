@@ -60,6 +60,6 @@ function facebook_posts($number) {
  */
 function instagram_posts($number) {
     global $ss_stream;
-    $chunks = array_chunk($ss_stream->facebook->fetch()->posts, $number);
+    $chunks = array_chunk($ss_stream->instagram->fetch()->posts, $number);
     return $chunks[0];
 }
