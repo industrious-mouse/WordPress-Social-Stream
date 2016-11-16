@@ -63,3 +63,31 @@ function instagram_posts($number) {
     $chunks = array_chunk($ss_stream->instagram->fetch()->posts, $number);
     return $chunks[0];
 }
+
+/**
+ * Fetch the last post from a feed that has an image
+ * @param   string  Feed type
+ * @return  array
+ */
+function fetch_last_posts_with_image($type = 'twitter', $total = 1)
+{
+    global $ss_stream;
+    $feed = $ss_stream->{$type}->fetch()->posts;
+
+    $image_posts = [];
+
+    foreach($feed as $item)
+    {
+        if($item->post['image'])
+        {
+            array_push($image_posts, $item);
+        }
+    }
+
+    if(!$image_posts)
+    {
+        return [];
+    }
+
+    return array_slice($image_posts, 0, $total);
+}

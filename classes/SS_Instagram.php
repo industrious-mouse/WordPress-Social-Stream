@@ -24,7 +24,8 @@ class SS_Instagram extends SS_Provider
 
         if(!$this->check_cache())
         {
-            $feed = json_decode(file_get_contents('https://www.instagram.com/' . $this->settings->instagram_username . '/media/'), true);
+            $content = file_get_contents('https://www.instagram.com/' . $this->settings->instagram_username . '/media/');
+            $feed = json_decode($content, true);
 
             if(!isset($feed['status']) || $feed['status'] !== 'ok')
             {
